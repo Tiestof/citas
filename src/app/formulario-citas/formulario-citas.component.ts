@@ -21,8 +21,7 @@ export class FormularioCitasComponent  implements OnInit {
 
   autorStr: string = ""
   citaStr: string = ""
-  countCita: number = 0
-  countAutor: number = 0
+
 
   addCita: Cita = new Cita(this.citaStr, this.autorStr, 0)
 
@@ -39,13 +38,6 @@ export class FormularioCitasComponent  implements OnInit {
     this.addCita.autor = this.autorStr
     
     this.onCreate.emit(this.addCita)
-
-  }
-  
-  validacion(){
-
-    this.countAutor = this.autorStr.length
-    this.countCita = this.citaStr.length
 
   }
 }
