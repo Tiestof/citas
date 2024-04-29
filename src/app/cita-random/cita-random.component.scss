@@ -1,0 +1,23 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    background-color: #ffffff; /* Gray background color */
+    }
+
+  ion-card {
+    --background: #dad8d8;
+    --color: #132af9;
+  }
+  
+  ion-card-title {
+    --color: #132af9;
+  }
+  
+  ion-card-subtitle {
+    --color: #132af9;
+    justify-content: end;
+    align-self: flex-end;
+  }
+

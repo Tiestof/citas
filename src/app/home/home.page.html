@@ -1,20 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Citas
     </ion-title>
+    <ion-buttons [collapse]="true" slot="end">
+      <ion-button color="medium" (click)="goToConfiguracion()"><ion-icon name="settings" size="large" ></ion-icon></ion-button>
+  </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+    <app-cita-random></app-cita-random>
 </ion-content>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button size="small">
+    <ion-icon name="add" (click)="goToGestionCitas()"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
+

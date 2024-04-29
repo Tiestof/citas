@@ -1,0 +1,60 @@
+
+<div class="component-container">
+
+  <ion-item color="Medium" lines="none">
+    <ion-text>
+      <b>Crea una nueva cita</b>
+    </ion-text>
+  </ion-item>
+
+  <ion-list [inset]="true">
+
+    <ion-item>
+      <ion-input  
+        [(ngModel)]="citaStr" 
+        required="required"
+        minlength="2"
+        #citainput ="ngModel"
+        label="Cita"  
+        placeholder="Escriba cita" 
+        labelPlacement="floating"
+        [clearInput]="true"
+        [clearOnEdit]="true">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        [(ngModel)]="autorStr" 
+        required="required"
+        minlength="5"
+        #autorinput ="ngModel"
+        label="Autor" 
+        placeholder="Osama Binladen" 
+        labelPlacement="floating"
+        [clearInput]="true"
+        [clearOnEdit]="true">
+        
+      </ion-input>
+    </ion-item>
+    
+  </ion-list>
+
+  <div>
+  <ion-item color="Medium" lines="none">
+    <ion-button 
+      [disabled]="citainput.invalid || autorinput.invalid"
+      (click)="onClick()" 
+      fill="clear">AGREGAR+
+    </ion-button>
+    <ion-text 
+      color="danger"
+      [hidden]="citainput.pristine && autorinput.pristine || !citainput.invalid  && !autorinput.invalid">
+      Autor tiene que tener almenos 5 letras y Cita almenos 2!
+    </ion-text>
+  </ion-item>
+</div>
+</div>
+
+
+
