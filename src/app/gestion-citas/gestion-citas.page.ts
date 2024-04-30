@@ -31,7 +31,10 @@ export class GestionCitasPage implements OnInit {
   }
 
   private resfrescarComponentes(){
-    this._cita = this.consultaCitasService.getListaCitas()
+    //this._cita = this.consultaCitasService.getListaCitas()
+    this.consultaCitasService.getListaCitas().then(cita => {
+      this._cita = cita;
+    });
   }
 
   onCreateCita($event: Cita) {

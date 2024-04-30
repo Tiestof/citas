@@ -2,16 +2,28 @@
 <div class="card-container">
 <ion-card>
 
-  <ion-card-content >
-    {{cita?.cita}}
+  <ion-card-content>
+    {{cita.cita}}
   </ion-card-content>
 
   <ion-card-header>
     <ion-card-subtitle>
-      {{cita?.autor}}
+      {{cita.autor}}
     </ion-card-subtitle>
-</ion-card-header>
+  </ion-card-header>
 
 </ion-card>
 </div>
+
+<ion-list lines="none">
+  <ion-item>
+    <ion-button fill="clear"
+    [disabled]="eliminar == false"
+    (click)="onClick()"
+
+    >
+    Eliminar
+  </ion-button>
+  </ion-item>
+</ion-list>
 

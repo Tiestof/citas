@@ -3,7 +3,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, Ion
 import { addIcons } from 'ionicons';
 import { settings, add } from 'ionicons/icons'
 import { CitaRandomComponent } from '../cita-random/cita-random.component';
-import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';// importacion para la navegacion en la paginas 
 
 
 @Component({
@@ -12,30 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [IonFabButton, IonFab, IonItem, IonFooter, IonCard, IonCardTitle, IonCardSubtitle, IonCardContent, IonCardHeader, IonRow, IonCol,
-     IonIcon, IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, CitaRandomComponent, IonGrid],
+    IonIcon, IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, 
+    CitaRandomComponent, IonGrid, RouterModule],
 })
 
 
 export class HomePage {
 
-
-  constructor(
-    private router: Router,
-      
-  ) {addIcons({settings, add})}
-
-
-  goToConfiguracion() {
-  this.router.navigate(['/configuracion']);
-}
-
-goToGestionCitas() {
-  this.router.navigate(['/gestion-citas']);
-  }
-
- 
-
-
-
+  constructor() {addIcons({settings, add})}
 
 }

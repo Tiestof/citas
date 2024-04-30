@@ -4,7 +4,10 @@
       Citas
     </ion-title>
     <ion-buttons [collapse]="true" slot="end">
-      <ion-button color="medium" (click)="goToConfiguracion()"><ion-icon name="settings" size="large" ></ion-icon></ion-button>
+      <ion-button 
+      color="medium" 
+      [routerLink] = "['/configuracion']">
+      <ion-icon name="settings" size="large" ></ion-icon></ion-button>
   </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,9 +16,17 @@
     <app-cita-random></app-cita-random>
 </ion-content>
 
-<ion-fab slot="fixed" vertical="bottom" horizontal="end">
-  <ion-fab-button size="small">
-    <ion-icon name="add" (click)="goToGestionCitas()"></ion-icon>
+<ion-fab 
+slot="fixed" 
+vertical="bottom" 
+horizontal="end">
+
+  <ion-fab-button 
+  size="small"
+  [routerLink] = "['/gestion-citas']">
+
+    <ion-icon name="add" ></ion-icon>
+
   </ion-fab-button>
 </ion-fab>
 
