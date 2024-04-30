@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';// llegue esta solucion con ayuda de IA
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular'
 import { Cita } from '../Modelo/cita';
 import { ConsultaCitasService } from '../consulta-citas.service';
 import { ConfiguracionService } from '../configuracion.service';
-import { Subscription } from 'rxjs'; // llegue esta solucion con ayuda de IA
+ import { Subscription } from 'rxjs'; 
 
 @Component({
   selector: 'app-cita-random',
@@ -21,17 +21,13 @@ export class CitaRandomComponent  implements OnInit, OnDestroy {
   citaEliminadaSubscription: Subscription = new Subscription;
 
   constructor(
-
     //injectamos los seriviocs en el componeente para usarlos 
     private consultaCitasService:ConsultaCitasService,
     private configurationService:ConfiguracionService 
-
-    ) {
-      // invocamos al servicio/metodo que no retorna una Cita al azar desde las lista de citas.
-      //this.cita = this.consultaCitasService.getCitaRandom()
-    }
+    ) { }
 
     ngOnInit() {
+      // cargamos la cita para mostrar 
       this.cargarCita();
       this.citaEliminadaSubscription = this.consultaCitasService.citaEliminada.subscribe(() => {
         this.cargarCita();
@@ -39,10 +35,11 @@ export class CitaRandomComponent  implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-      this.citaEliminadaSubscription.unsubscribe();
+        this.citaEliminadaSubscription.unsubscribe();
     }
   
     async cargarCita() {
+      // traemos la citarandom usando getCitaRandom() y la convertimos de promise a tipo Cita
       this.consultaCitasService.getCitaRandom().then(cita => {
         this.cita = cita;
         this.configurationService.eliminarInicio().then(eliminar => {
@@ -52,7 +49,8 @@ export class CitaRandomComponent  implements OnInit, OnDestroy {
     }
 
   onClick() {
-  
+    // despues de validar si la la opcion de configuracion esta 
+    //habilitada se podra eliminar la cita
     this.consultaCitasService.eliminarCita(this.cita)
 
     

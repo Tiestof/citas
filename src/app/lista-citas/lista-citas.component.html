@@ -1,5 +1,7 @@
 <ion-content color="light">
   <ion-list>
+    <!--Uso del ngFOR para ir recorriendo la lista de citas e ir agregando los ion-items-->
+    <!--integracion de trackBy para poder eliminar si se dece las citas listadas-->
     <ion-item *ngFor="let cita of _listaCita; trackBy: trackByCita">
       <ion-label>
         {{ cita.cita }} <br>

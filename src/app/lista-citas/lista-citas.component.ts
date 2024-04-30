@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, input } from '@angular/core';
-import { IonContent, IonList, IonItem, IonCheckbox, IonLabel, IonToggle, IonButton, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent } from "@ionic/angular/standalone";
+import { IonContent, IonList, IonItem, IonCheckbox, IonLabel, IonToggle,
+   IonButton, IonIcon, IonInfiniteScroll, 
+   IonInfiniteScrollContent } from "@ionic/angular/standalone";
 import { CommonModule } from '@angular/common';
 import { addIcons } from 'ionicons';
 import { trash } from 'ionicons/icons'
@@ -12,7 +14,9 @@ import { ConfiguracionService } from '../configuracion.service';
   templateUrl: './lista-citas.component.html',
   styleUrls: ['./lista-citas.component.scss'],
   standalone: true,
-  imports: [IonInfiniteScrollContent, IonInfiniteScroll,  IonIcon, IonButton, IonToggle, IonLabel, IonCheckbox, IonContent, IonList, IonItem, CommonModule]
+  imports: [IonInfiniteScrollContent, IonInfiniteScroll,  
+    IonIcon, IonButton, IonToggle, IonLabel, IonCheckbox, 
+    IonContent, IonList, IonItem, CommonModule]
 })
 export class ListaCitasComponent  implements OnInit {
 
@@ -20,6 +24,7 @@ export class ListaCitasComponent  implements OnInit {
   @Input() _listaCita: Cita [] = [] 
 
   constructor(
+    // Injecccion de los servicios a utilizar por el componente.
     private consultaCitasService:ConsultaCitasService,
     private configuracionService:ConfiguracionService
 
@@ -31,7 +36,10 @@ export class ListaCitasComponent  implements OnInit {
       this.cargarCitas(); 
     });
   }
-
+ // esta integracion de  trackBy permite que al usar de nfFor
+ // guarde asocie la cita iterada con el del index ion-item asi caundo intentemos eliminar,
+ // la variable cita tendra el valor de que corresponde al invocar el metodo
+ //(click)="eliminarCita(cita)" en el html.
   trackByCita(index: number, cita: Cita): number {
     return cita.id; // Usamos el identificador único del objeto Cita
   }
@@ -39,7 +47,7 @@ export class ListaCitasComponent  implements OnInit {
   eliminarCita(cita: Cita) {
     this.consultaCitasService.eliminarCita(cita);
   }
-
+  // usamos el getlistacitas() del servicio para actualizar
   async cargarCitas() {
     this._listaCita = await this.configuracionService.getListaCitas() || [];
   }

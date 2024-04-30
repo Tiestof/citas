@@ -2,6 +2,8 @@
   <ion-toolbar>
 
     <ion-buttons slot="start">
+      <!-- integre este boton de volver y por defecto maneja 
+        esa href lo deje asi porque funciona bien  -->
       <ion-back-button default-href="#"></ion-back-button>
     </ion-buttons>
 
@@ -9,10 +11,14 @@
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content>
   
+  <!-- aca usamos el @Output para enviar el vento-->
   <app-formulario-citas (onCreate)="onCreateCita($event)"/>
 
+  <!-- aca usamos el @Input para enviarle la _cita al componente-->
   <app-lista-citas [_listaCita]="_cita" />
 
 </ion-content>

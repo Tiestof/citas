@@ -1,7 +1,7 @@
 
 <div class="card-container">
 <ion-card>
-
+<!-- cargamos los datos de la cita en el ion-card-content -->
   <ion-card-content>
     {{cita.cita}}
   </ion-card-content>
@@ -17,6 +17,8 @@
 
 <ion-list lines="none">
   <ion-item>
+    <!-- aca estamos validando si la configuracion del servicio
+       permite o no habilitar el boton-->
     <ion-button fill="clear"
     [disabled]="eliminar == false"
     (click)="onClick()"
