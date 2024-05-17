@@ -1,7 +1,7 @@
-import { Component, Input, OnInit, input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonContent, IonList, IonItem, IonCheckbox, IonLabel, IonToggle,
-   IonButton, IonIcon, IonInfiniteScroll, 
-   IonInfiniteScrollContent } from "@ionic/angular/standalone";
+    IonButton, IonIcon, IonInfiniteScroll, 
+    IonInfiniteScrollContent } from "@ionic/angular/standalone";
 import { CommonModule } from '@angular/common';
 import { addIcons } from 'ionicons';
 import { trash } from 'ionicons/icons'
